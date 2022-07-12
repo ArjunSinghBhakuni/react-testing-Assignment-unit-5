@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import Button from "./Button";
 import App from "../App";
@@ -46,6 +47,39 @@ describe("Button Tests", () => {
     // expect(mockfn).toBeCalled();
     expect(mockfn).toBeCalledTimes(2);
   });
+
+  //Snapshot -> Screenshots, Represented in a particular format
+  it.only("should match snapshot", () => {
+    const tree = renderer
+      .create(
+        <Button colorScheme={"green"} variant={"ghost"}>
+          Add Counter
+        </Button>
+      )
+      .toTree();
+    expect(tree).toMatchSnapshot();
+  });
+
+  //basic utitlies, hooks (NOT REACT HOOKS)
+  //run for 1 time, before running any test
+  beforeAll(() => {
+    // make a db.call => output
+  });
+
+  //before every test case
+  beforeEach(() => {
+    // get the deployed link (netlify)
+  });
+
+  //after all the tests are run
+  afterAll(() => {
+    // stop that db.json
+  });
+
+  //after a single test case if completed
+  afterEach(() => {
+    //
+  });
 });
 
 //If our function is getting called or not?
@@ -62,3 +96,5 @@ describe("Button Tests", () => {
 //Expectations -> Actual Results
 
 //Delete App.test.js
+
+//Redux?

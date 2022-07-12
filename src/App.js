@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Button from "./Components/Button";
+import Counter from "./Components/Counter";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -15,6 +16,8 @@ function App() {
       >
         Change Theme
       </Button>
+
+      <Counter/>
     </div>
   );
 }
